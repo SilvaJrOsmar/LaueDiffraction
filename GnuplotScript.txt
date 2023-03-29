@@ -1,0 +1,47 @@
+cd 'C:\Laue\SC_Rede'
+set view equal xyz
+set view 0,0
+set key off
+set xyplane at 0.
+set xtics 5
+set ytics 5
+set ztics 5
+set grid
+#
+# Vendo um pedaco central do cristal
+#
+set zrange [-10:10]
+set xrange [-10:10]
+set yrange [-10:10]
+splot 'redeSC.dat' w point lt 7
+#
+# Girando de 90 graus
+#
+unset xtics
+unset ytics
+set view 90,0
+splot 'redeSC.dat' w point lt 7
+
+#
+#  Girado em perspectiva
+#
+set xyplane at -10.
+splot 'redeSC.dat' w point lt 7
+unset xtics
+unset ytics
+set ztics 5
+splot 'redeSC.dat' w point lt 7
+# (use as setas para girar)
+
+# Vendo uma celula apenas
+#
+set xtics 2
+set ytics 2
+set ztics 2
+set grid
+set xyplane at 0.
+set xrange [-.05:4]
+set yrange [-.05:4]
+set zrange [-.05:4]
+set view 0,0
+splot 'redeSC.dat' w point lt 7
